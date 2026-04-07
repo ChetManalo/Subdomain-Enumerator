@@ -9,13 +9,14 @@ To run the program:
 3. Enter a valid web address when prompted.
 
 ## Planned Changes
-- Web address validation
 - Convert to CLI tool
 - Select a custom Subdomain txt file to use
-- Output results to file
 
 ## Changelog
-No changes yet.
+
+4/7/26
+- Web addresses are now validated on input
+- Can now output results to a file
 
 ## Have a suggestion?
 Please let me know! Any advice is greatly appreciated! Create an issue or reach out via email (manalochet01@gmail.com). Thanks!
