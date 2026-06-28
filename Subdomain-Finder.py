@@ -26,18 +26,21 @@ def searchSubs(url, outputResults):
 					if outputResults:
 						foundSubs.append(f"{protocol}://{sub}.{hostname} 200 OK");
 			except:
-				continue;
+			    continue;
 	
 	if outputResults == False:
 		return
-	
-	print("\nSaving output...");
-	outputPath = Path(f"./output/{hostname}.txt");
-	outputPath.parent.mkdir(parents=True, exist_ok=True);
-	
-	with open(outputPath, "w") as output:
-		output.write("\n".join(foundSubs));
-		print("File saved at", outputPath);
+		
+	if len(foundSubs) > 0:
+	    print("\nSaving output...");
+	    outputPath = Path(f"./output/{hostname}.txt");
+	    outputPath.parent.mkdir(parents=True, exist_ok=True);
+	    
+	    with open(outputPath, "w") as output:
+		    output.write("\n".join(foundSubs));
+		    print("File saved at", outputPath);
+	else:
+	    print("No subdomains found. No file saved.");
 
 while True:
 	url = input("Enter site to scan: ");
@@ -46,5 +49,5 @@ while True:
 	else:
 		print("Invalid URL. Try again.")
 
-outputResults = True if input("Output results y/n: ").lower() == "y" else False;
+outputResults = True if input("Save output to txt file? y/n: ").lower() == "y" else False;
 searchSubs(url, outputResults);
